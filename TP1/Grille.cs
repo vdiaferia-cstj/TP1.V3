@@ -50,74 +50,137 @@ namespace Tp01
                         return colPleine;
                     
                 case "a":
-                    numRangee = colonnes[0].RemplirUneCase(symbole);
-                    numColonne = 0;
-                    Afficher();
-
-                    break;
+                    if (!colonneEstPleine(0))
+                    {
+                        numRangee = colonnes[0].RemplirUneCase(symbole);
+                        numColonne = 0;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "B":
 
-                    numRangee = colonnes[1].RemplirUneCase(symbole);
-                    numColonne = 1;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(1))
+                    {
+                        numRangee = colonnes[1].RemplirUneCase(symbole);
+                        numColonne = 1;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "b":
 
-                    numRangee = colonnes[1].RemplirUneCase(symbole);
-                    numColonne = 1;
-                    Afficher();
-
-                    break;
+                    if (!colonneEstPleine(1))
+                    {
+                        numRangee = colonnes[1].RemplirUneCase(symbole);
+                        numColonne = 1;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "C":
-                    numRangee = colonnes[2].RemplirUneCase(symbole);
-                    numColonne = 2;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(2))
+                    {
+                        numRangee = colonnes[2].RemplirUneCase(symbole);
+                        numColonne = 2;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "c":
-                    numRangee = colonnes[2].RemplirUneCase(symbole);
-                    numColonne = 2;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(2))
+                    {
+                        numRangee = colonnes[2].RemplirUneCase(symbole);
+                        numColonne = 2;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "D":
-                    numRangee = colonnes[3].RemplirUneCase(symbole);
-                    numColonne = 3;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(3))
+                    {
+                        numRangee = colonnes[3].RemplirUneCase(symbole);
+                        numColonne = 3;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "d":
-                    numRangee = colonnes[3].RemplirUneCase(symbole);
-                    numColonne = 3;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(3))
+                    {
+                        numRangee = colonnes[3].RemplirUneCase(symbole);
+                        numColonne = 3;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "E":
-                    numRangee = colonnes[4].RemplirUneCase(symbole);
-                    numColonne = 4;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(4))
+                    {
+                        numRangee = colonnes[4].RemplirUneCase(symbole);
+                        numColonne = 4;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "e":
-                    numRangee = colonnes[4].RemplirUneCase(symbole);
-                    numColonne = 4;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(4))
+                    {
+                        numRangee = colonnes[4].RemplirUneCase(symbole);
+                        numColonne = 4;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "F":
-                    numRangee = colonnes[5].RemplirUneCase(symbole);
-                    numColonne = 5;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(5))
+                    {
+                        numRangee = colonnes[5].RemplirUneCase(symbole);
+                        numColonne = 5;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "f":
-                    numRangee = colonnes[5].RemplirUneCase(symbole);
-                    numColonne = 5;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(5))
+                    {
+                        numRangee = colonnes[5].RemplirUneCase(symbole);
+                        numColonne = 5;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "G":
-                    numRangee = colonnes[6].RemplirUneCase(symbole);
-                    numColonne = 6;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(6))
+                    {
+                        numRangee = colonnes[6].RemplirUneCase(symbole);
+                        numColonne = 6;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                 case "g":
-                    numRangee = colonnes[6].RemplirUneCase(symbole);
-                    numColonne = 6;
-                    Afficher();
-                    break;
+                    if (!colonneEstPleine(6))
+                    {
+                        numRangee = colonnes[6].RemplirUneCase(symbole);
+                        numColonne = 6;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
 
             }
             

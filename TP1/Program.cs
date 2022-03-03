@@ -6,11 +6,15 @@ namespace Tp01
 {
     class Program
     {
+        private static bool quitter = false;
+        private static bool recommencer = false;
         static void Main(string[] args)
         {
-            bool quitter = false;
+           
             // Si l'utilisateur gagne, aGagner deviendrait vrai et repartira une nouvelle grille
             int statut;
+            bool colonnePleine;
+            int coupDansTableau =0;
             // le symbole de base est X
             string symbole = "X";
             // créer une nouvelle grille à l'ouverture du programme
@@ -39,24 +43,38 @@ namespace Tp01
                     choix = Choix();
                 }
                 statut = grille.JouerSonTour(symbole, choix); //Appel jouer son tour. Si l'utilisateur à gagner, aGagner deviendra vrai
-                FinDeCoup(statut);
-                
-                // Pour changer le symbole à chaque tour
-                if (symbole == "X")
+                colonnePleine = FinDeCoup(statut);
+                if (recommencer)
                 {
-                   
-                    symbole = "O";
+                    grille = new Grille();
                 }
-                else
+                // Pour changer le symbole à chaque tour
+                if (!colonnePleine)
                 {
-                   
-                    symbole = "X";
+                    if (symbole == "X")
+                    {
+
+                        symbole = "O";
+                    }
+                    else
+                    {
+
+                        symbole = "X";
+                    }
+                }
+                coupDansTableau++;
+                if (coupDansTableau == 42 )
+                {
+                    FinDeCoup(1);
+                    grille = new Grille(); // Recréer une nouvelle grille, donc c'est comme si la partie recommencerait
+                    coupDansTableau = 0;
                 }
             }
         }
-        static void FinDeCoup(int statut)
+        static bool FinDeCoup(int statut)
         {
-            if (statut == 1) // Si l'utilisateur à une condition gagnante
+            string choix;
+            if (statut == 1) // Si l'utilisateur à une condition gagnante ou partie nulle
             {
                 string veuxRejouer;
                 Console.Clear();
@@ -64,18 +82,22 @@ namespace Tp01
                 veuxRejouer = Console.ReadLine();
                 if (veuxRejouer == "Y" || veuxRejouer == "y")
                 {
-                    Grille grille = new Grille();  // Recréer une nouvelle grille, donc c'est comme si la partie recommencerait
-
+                    recommencer = true;
+                    return false;
                 }
                 else
                 {
                     quitter = true;
+                    return false;
                 }
             }
             if (statut == 2) // Si la colonne est pleine
             {
                 Console.WriteLine("Erreur: La colonne est pleine. Veuillez choisir une autre colonne.");
+                choix = Choix();
+                return true;
             }
+            return false;
         }
 
         /// <summary>
