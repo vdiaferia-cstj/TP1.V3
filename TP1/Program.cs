@@ -10,7 +10,7 @@ namespace Tp01
         {
             bool quitter = false;
             // Si l'utilisateur gagne, aGagner deviendrait vrai et repartira une nouvelle grille
-            bool aGagner = false;
+            int statut;
             // le symbole de base est X
             string symbole = "X";
             // créer une nouvelle grille à l'ouverture du programme
@@ -30,24 +30,17 @@ namespace Tp01
 
 
                 string choix = Choix(); // Retourne la valeur de choix  en appelant la fonction choix
-                aGagner = grille.JouerSonTour(symbole, choix); //Appel jouer son tour. Si l'utilisateur à gagner, aGagner deviendra vrai
-                if (aGagner) // Si l'utilisateur à une condition gagnante
+                while (!(choix == "A" || choix == "a" || choix == "B" || choix == "b" 
+                      || choix == "C" || choix == "c" || choix == "D" || choix == "d"
+                      || choix == "E" || choix == "e" || choix == "F" || choix == "f"
+                      || choix == "G" || choix == "g"))
                 {
-                    string veuxRejouer;
-                    Console.Clear();
-                    Console.WriteLine("La partie est terminée. Souhaitez-vous continuer à jouer? Y/N");
-                    veuxRejouer = Console.ReadLine();
-                    if (veuxRejouer == "Y" || veuxRejouer == "y")
-                    {
-                        grille = new Grille();  // Recréer une nouvelle grille, donc c'est comme si la partie recommencerait
-
-                    }
-                    else
-                    {
-                        quitter = true;
-                    }
+                    Console.WriteLine("Erreur: Veuillez entrer une colonne valide.");
+                    choix = Choix();
                 }
-
+                statut = grille.JouerSonTour(symbole, choix); //Appel jouer son tour. Si l'utilisateur à gagner, aGagner deviendra vrai
+                FinDeCoup(statut);
+                
                 // Pour changer le symbole à chaque tour
                 if (symbole == "X")
                 {
@@ -61,7 +54,29 @@ namespace Tp01
                 }
             }
         }
+        static void FinDeCoup(int statut)
+        {
+            if (statut == 1) // Si l'utilisateur à une condition gagnante
+            {
+                string veuxRejouer;
+                Console.Clear();
+                Console.WriteLine("La partie est terminée. Souhaitez-vous continuer à jouer? Y/N");
+                veuxRejouer = Console.ReadLine();
+                if (veuxRejouer == "Y" || veuxRejouer == "y")
+                {
+                    Grille grille = new Grille();  // Recréer une nouvelle grille, donc c'est comme si la partie recommencerait
 
+                }
+                else
+                {
+                    quitter = true;
+                }
+            }
+            if (statut == 2) // Si la colonne est pleine
+            {
+                Console.WriteLine("Erreur: La colonne est pleine. Veuillez choisir une autre colonne.");
+            }
+        }
 
         /// <summary>
         /// Affiche l'entête au dessus du jeu

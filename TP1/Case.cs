@@ -23,9 +23,9 @@ namespace Tp01
           
 
          
-                Console.Write(Valeur);
+                Console.Write("|_" + Valeur + "_");
               
-                Console.Write("_");
+                
           
             
             if (colonne == 6)

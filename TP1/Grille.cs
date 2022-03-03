@@ -28,18 +28,27 @@ namespace Tp01
             }
         }
 
-        public bool JouerSonTour(string symbole, string choix)
+        public int JouerSonTour(string symbole, string choix)
         {
             int numRangee = 0;
             int numColonne = 0;
+            int prochainTour = 0;
+            int coupGagnant = 1;
+            int colPleine = 2;
             switch (choix)
             {
                 case "A":
-                    numRangee = colonnes[0].RemplirUneCase(symbole);
-                    numColonne = 0;
-                    Afficher();
+
+                    if (!colonneEstPleine(0))
+                    {
+                        numRangee = colonnes[0].RemplirUneCase(symbole);
+                        numColonne = 0;
+                        Afficher();
+                        break;
+                    }
+                    else
+                        return colPleine;
                     
-                    break;
                 case "a":
                     numRangee = colonnes[0].RemplirUneCase(symbole);
                     numColonne = 0;
@@ -115,12 +124,21 @@ namespace Tp01
            
             if (conditionGagnante(numColonne, numRangee, symbole))
             {
-                return true;
+                return coupGagnant;
             }
 
            
-            return false;
+            return prochainTour;
 
+        }
+        public bool colonneEstPleine (int numColonne)
+        {
+            if (colonnes[numColonne].valeurDeCase(0) != " ")
+            {
+                return true;
+            }
+
+            return false;
         }
         public bool conditionGagnante(int numColonne, int numRangee, string symbole)
         {
